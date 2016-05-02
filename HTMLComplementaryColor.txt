@@ -1,0 +1,40 @@
+public class HTMLComplementaryColor {
+  public static String getReversedColor(Object color) throws IllegalArgumentException {
+       throw new IllegalArgumentException();
+        
+    }
+ public static String getReversedColor() throws IllegalArgumentException {   
+       throw new IllegalArgumentException();
+        
+    }
+    public static String getReversedColor(String color) throws IllegalArgumentException {
+        if (color==null) {
+            throw new IllegalArgumentException();
+        }
+       if (!color.getClass().equals(String.class)) {
+            throw new IllegalArgumentException();
+        }
+     
+        String hexColor = (String) color;
+
+        Integer whiteHex = 0xffffff;
+        if (color.length() == 0) {
+            return "#FFFFFF";
+        }
+        hexColor = hexColor.toLowerCase();
+        for (int i = 0; i < hexColor.length(); i++) {
+            if (!((int) hexColor.charAt(i) < 58 && (int) hexColor.charAt(i) > 47) && !((int) hexColor.charAt(i) < 103 && (int) hexColor.charAt(i) > 96)) {
+                throw new IllegalArgumentException();
+            }
+        }
+        if (hexColor.length() > 6) {
+            throw new IllegalArgumentException();
+        }
+
+        Integer subHex = Integer.parseInt(hexColor, 16);
+        int result = whiteHex - subHex;
+        String theColor = "#" + Integer.toHexString(result);
+        theColor = theColor.toUpperCase();
+        return theColor;
+    }
+}
